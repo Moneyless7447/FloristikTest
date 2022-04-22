@@ -47,14 +47,14 @@
                             
                             <p:outputLabel value="Telefon" for="phone"/> 
                             <p:inputText id="phone" label="phone" value="" validatorMessage="Telefon ist nicht gültig">
-                                <f:validateRegex pattern="[\w\.-]*[0-9]"/>
+                                <f:validateRegex pattern="[0-9\/\-\s\+]"/>
                             </p:inputText>
                             <p:message for="phone" />
                             
                             
                             <p:outputLabel value="Benutzername" for="username"/> 
                             <p:inputText id="username" label="username" value="" validatorMessage="Benutzername ist nicht gültig">
-                                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9]"/>
+                                <f:validateRegex pattern="[\w\d\-\_]{3,}"/>
                             </p:inputText>
                             <p:message for="username" />
                             
