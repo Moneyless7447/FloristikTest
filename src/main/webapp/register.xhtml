@@ -17,7 +17,7 @@
                             
                             
                             <p:outputLabel value="Anrede"/> 
-                            <p:selectOneRadio id="salutation" value="" required="true" validatorMessage="Bitte auswählen">
+                            <p:selectOneRadio id="salutation" value="" required="true" requiredMessage="Bitte auswählen">
                                 <f:selectItem itemLabel="Frau" itemValue="Frau"/>
                                 <f:selectItem itemLabel="Herr" itemValue="Herr"/>
                             </p:selectOneRadio>
@@ -25,22 +25,22 @@
                             
                             
                             <p:outputLabel value="Nachname" for="lastname"/> 
-                            <p:inputText id="lastname" label="lastname" value="" validatorMessage="Nachname ist nicht gültig">
-                                <f:validateRegex pattern="[\w\.-]*[a-zA-Z]"/>
+                            <p:inputText id="lastname" label="lastname"  value="" validatorMessage="Nachname ist nicht gültig">
+                                <f:validateRegex pattern="[a-zA-Z-\s]+"/>
                             </p:inputText>
                             <p:message for="lastname" />
                             
                             
                             <p:outputLabel value="Vorname" for="surname"/> 
-                            <p:inputText id="surname" label="surname" value="" validatorMessage="Vorname ist nicht gültig">
-                                <f:validateRegex pattern="[\w\.-]*[a-zA-Z]"/>
+                            <p:inputText id="surname" label="surname"  value="" validatorMessage="Vorname ist nicht gültig">
+                                <f:validateRegex pattern="[a-zA-Z-\s]+"/>
                             </p:inputText>
                             <p:message for="surname" />
                             
                             
                             <p:outputLabel value="E-Mailadresse (optional)" for="email"/> 
                             <p:inputText id="email" label="email" value="" validatorMessage="E-Mail ist nicht gültig">
-                                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"/>
+                                <f:validateRegex pattern="(?:[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z])|(?:)"/>
                             </p:inputText>
                             <p:message for="email" />
                             
