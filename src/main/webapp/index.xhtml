@@ -9,7 +9,17 @@
     </h:head>
     <h:body>
         <ui:composition template="template/master.xhtml">
-            
+            <ui:define name="content">
+                <h:form id="deliveryConditionForm">
+                    <p:panel header="Lieferzeit">
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Lieferdatum"/> 
+                            <p:outputLabel value="Lieferzeit"/> 
+                            
+                        </p:panelGrid>
+                    </p:panel>
+                </h:form>
+            </ui:define>
         </ui:composition>
    
     </h:body>

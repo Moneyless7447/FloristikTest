@@ -7,6 +7,16 @@
     <packaging>war</packaging>
     <name>test-1.0-SNAPSHOT</name>
     
+    <repositories>
+       
+    <repository>
+    <id>primefaces</id>
+    <name>PrimeFaces Maven Repository</name>
+    <url>https://repository.primefaces.org</url>
+    <layout>default</layout>
+    </repository>
+    </repositories>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
