@@ -29,7 +29,7 @@ public class ServiceBean {
     @PostConstruct  
     public void init() {
         Service service1 = new Service("Hochzeitspaket",3.0f);
-        Service service2 = new Service("Friedhofbegrünung",5.0f);
+        Service service2 = new Service("Friedhofsbegrünung",5.0f);
         services = new ArrayList<>();
         services.add(service1);
         services.add(service2);

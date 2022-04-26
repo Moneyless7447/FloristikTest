@@ -30,9 +30,11 @@ public class ProductBean {
     public void init() {
         Flower flower1 = new Flower("Gänseblümchen",3.0f);
         Flower flower2 = new Flower("Flieder",5.0f);
+        Flower flower3 = new Flower("Brnnesseln",99.0f);
         flowers = new ArrayList<>();
         flowers.add(flower1);
         flowers.add(flower2);
+        flowers.add(flower3);
     }
     public List<Flower> getFlowers() {
         return flowers;

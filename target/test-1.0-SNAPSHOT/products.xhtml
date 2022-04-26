@@ -17,10 +17,10 @@
                         <h:outputText value="#{flower.name}" />
                     </p:column>
                     <p:column headerText="Netto-Einzelpreis">
-                        <h:outputText value="#{flower.price}" />
+                        <h:outputText value="#{flower.price} €" />
                     </p:column>
                     <p:column headerText="Menge">
-                         <p:selectOneMenu id="countFlowers" value="">
+                         <p:selectOneMenu id="countFlowers" >
                                 <f:selectItem itemLabel="1" itemValue="one"/>
                                 <f:selectItem itemLabel="2" itemValue="two"/>
                                 <f:selectItem itemLabel="3" itemValue="three"/>
