@@ -2,16 +2,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Floristik</title>
     </h:head>
     <h:body>
         <ui:composition template="template/master.xhtml">
             <ui:define name="content">
-                login
+                <h:form id="loginForm">
+                    <p:panelGrid columns="3">
+                            <p:outputLabel value="Benutzername" for="username"/> 
+                            <p:inputText required="true" id="username" label="username" value="#{loginBean.lgn}"  validatorMessage="Benutzername ist nicht gültig">
+                                <f:validateRegex pattern="[\w\d\-\_]{3,}"/>
+                            </p:inputText>
+                            <p:message for="username" id="messageUsername"/>
+                            
+                            
+                            <p:outputLabel value="Passwort" for="password"/> 
+                            <p:password required="true" id="password" label="password" value="#{loginBean.pwd}"  validatorMessage="Passwortlänge überprüfen!" requiredMessage="Bitte angeben!">
+                                <f:validateLength minimum="5"/>
+                            </p:password>
+                            <p:message for="password" id="messagePassword" />
+                            
+                            <p:outputLabel value=""/>
+                            <p:commandButton value="Anmelden" id="cBtnLoging" action="#{loginBean.process}"  update="messageUsername messagePassword"  />
+                            
+                    </p:panelGrid>
+                    
+       
+                        
+                    
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>
 </html>
 
+
+
+ 

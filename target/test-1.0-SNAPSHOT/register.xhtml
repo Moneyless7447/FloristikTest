@@ -53,14 +53,14 @@
                             
                             
                             <p:outputLabel value="Benutzername" for="username"/> 
-                            <p:inputText id="username" label="username" value="" validatorMessage="Benutzername ist nicht gültig">
+                            <p:inputText id="username" label="username" value="#{backingBean.lgn}"  validatorMessage="Benutzername ist nicht gültig">
                                 <f:validateRegex pattern="[\w\d\-\_]{3,}"/>
                             </p:inputText>
                             <p:message for="username" />
                             
                             
                             <p:outputLabel value="Passwort" for="password"/> 
-                            <p:password id="password" label="password" value="" validatorMessage="Passwortlänge überprüfen!" requiredMessage="Bitte angeben!">
+                            <p:password id="password" label="password" value="#{backingBean.pwd}"  validatorMessage="Passwortlänge überprüfen!" requiredMessage="Bitte angeben!">
                                 <f:validateLength minimum="5"/>
                             </p:password>
                             <p:message for="password" />
