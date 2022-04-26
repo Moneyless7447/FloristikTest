@@ -4,21 +4,39 @@
  */
 package com.mycompany.test;
 
+import java.util.List;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.RequestScoped;
+import com.mycompany.test.Flower;
+import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 
 /**
  *
  * @author Sascha Nickel
  */
 @Named(value = "productBean")
-@Dependent
+@RequestScoped
 public class ProductBean {
 
+    private ArrayList<Flower> flowers;
     /**
      * Creates a new instance of ProductBean
      */
     public ProductBean() {
+
     }
+    @PostConstruct  
+    public void init() {
+        Flower flower1 = new Flower("Gänseblümchen",3.0f);
+        Flower flower2 = new Flower("Flieder",5.0f);
+        flowers = new ArrayList<>();
+        flowers.add(flower1);
+        flowers.add(flower2);
+    }
+    public List<Flower> getFlowers() {
+        return flowers;
+    }
+    
     
 }
