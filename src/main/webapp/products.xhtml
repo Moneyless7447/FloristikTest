@@ -20,16 +20,9 @@
                         <h:outputText value="#{flower.price} €" />
                     </p:column>
                     <p:column headerText="Menge">
-                         <p:selectOneMenu id="countFlowers" >
-                                <f:selectItem itemLabel="1" itemValue="one"/>
-                                <f:selectItem itemLabel="2" itemValue="two"/>
-                                <f:selectItem itemLabel="3" itemValue="three"/>
-                                <f:selectItem itemLabel="4" itemValue="four"/>
-                                <f:selectItem itemLabel="5" itemValue="five"/>
-                                <f:selectItem itemLabel="6" itemValue="six"/>
-                                <f:selectItem itemLabel="7" itemValue="seven"/>
-                                
-                            </p:selectOneMenu>
+                        <p:selectOneMenu id="number" value="#{selectOneMenuViewCount.number}">
+                            <f:selectItems value="#{selectOneMenuViewCount.numbers}" />
+                        </p:selectOneMenu>
                     </p:column>
                     <p:column headerText="Warenkorb">
                         
