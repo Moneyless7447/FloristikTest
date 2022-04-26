@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Floristik</title>
     </h:head>
@@ -19,7 +20,16 @@
                         <h:outputText value="#{flower.price}" />
                     </p:column>
                     <p:column headerText="Menge">
-                        
+                         <p:selectOneMenu id="countFlowers" value="">
+                                <f:selectItem itemLabel="1" itemValue="one"/>
+                                <f:selectItem itemLabel="2" itemValue="two"/>
+                                <f:selectItem itemLabel="3" itemValue="three"/>
+                                <f:selectItem itemLabel="4" itemValue="four"/>
+                                <f:selectItem itemLabel="5" itemValue="five"/>
+                                <f:selectItem itemLabel="6" itemValue="six"/>
+                                <f:selectItem itemLabel="7" itemValue="seven"/>
+                                
+                            </p:selectOneMenu>
                     </p:column>
                     <p:column headerText="Warenkorb">
                         
