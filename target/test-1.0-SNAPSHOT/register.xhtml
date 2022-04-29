@@ -38,7 +38,7 @@
                             <p:message for="surname" />
                             
                             
-                            <p:outputLabel value="E-Mailadresse (optional)" for="email" /> 
+                            <p:outputLabel value="E-Mailadresse" for="email" /> 
                             <p:inputText id="email" label="email" value="#{registerBean.mail}" validatorMessage="E-Mail ist nicht gültig">
                                 <f:validateRegex pattern="(?:[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z])|(?:)"/>
                             </p:inputText>
@@ -47,7 +47,7 @@
                             
                             <p:outputLabel value="Telefon" for="phone"/> 
                             <p:inputText id="phone" label="phone" value="#{registerBean.phone}" >
-                         
+                                
                             </p:inputText>
                             <p:message for="phone" />
                             
