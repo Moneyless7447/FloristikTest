@@ -40,5 +40,12 @@ public class ProductBean {
         return flowers;
     }
     
-    
+    public Flower getFlowerByID(String name){
+        for(Flower f: this.flowers){
+            if(f.getName().equals(name)){
+                return f;
+            }
+        }
+        return null;
+    }
 }

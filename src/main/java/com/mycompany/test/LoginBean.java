@@ -87,10 +87,10 @@ public class LoginBean implements Serializable{
                 context.addMessage("loginForm:username", fm);
                 context.addMessage("loginForm:password", fm);
             } else {
-                fm = new FacesMessage("No Match.");
+                fm = new FacesMessage("Benutzername oder Passwort falsch");
                 
                 context.addMessage("loginForm:username", fm);
-                context.addMessage("loginForm:password", fm);
+                //context.addMessage("loginForm:password", fm);
                 nextPage = "login";
             }
             return nextPage;
@@ -106,7 +106,7 @@ public class LoginBean implements Serializable{
         //https://www.java-forum.org/thema/aktuelle-seite-neu-laden.131093/
         //return seite würde es hier auch tun!
         try {
-            context.getExternalContext().redirect("index.xhtml");
+            context.getExternalContext().redirect("");
         } catch (IOException ex) {
             //LOGGER.log(Level.SEVERE, null, ex);
         }

@@ -13,11 +13,40 @@ public class Flower {
     private String name;
     private float price;
     
+    private int amount;
     
     public Flower(String name, float price){
-        this.name=name;
-        this.price=price;
+    this.name=name;
+    this.price=price;
     }
+    
+    public Flower(String name, float price, int amount){
+    this.name=name;
+    this.price=price;
+    this.amount=amount;
+    }
+
+    /**
+     * Get the value of amount
+     *
+     * @return the value of amount
+     */
+    public int getAmount() {
+        return amount;
+    }
+
+    /**
+     * Set the value of amount
+     *
+     * @param amount new value of amount
+     */
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    
+    
+
 
     /**
      * Get the value of price
