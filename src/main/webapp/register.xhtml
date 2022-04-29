@@ -11,13 +11,13 @@
     <h:body>
         <ui:composition template="template/master.xhtml">
             <ui:define name="content">
-                <h:form id="registrationForm">
+                <h:form id="registrationForm" prependId="false">
                     <p:panel header="Registrierung">
                         <p:panelGrid columns="3">
                             
                             
                             <p:outputLabel value="Anrede"/> 
-                            <p:selectOneRadio id="salutation" value="" required="true" requiredMessage="Bitte auswählen">
+                            <p:selectOneRadio id="salutation"  required="true" requiredMessage="Bitte auswählen">
                                 <f:selectItem itemLabel="Frau" itemValue="Frau"/>
                                 <f:selectItem itemLabel="Herr" itemValue="Herr"/>
                             </p:selectOneRadio>
@@ -25,50 +25,50 @@
                             
                             
                             <p:outputLabel value="Nachname" for="lastname"/> 
-                            <p:inputText id="lastname" label="lastname"  value="" validatorMessage="Nachname ist nicht gültig">
+                            <p:inputText id="lastname" label="lastname"  value="#{registerBean.lastname}" validatorMessage="Nachname ist nicht gültig">
                                 <f:validateRegex pattern="[a-zA-Z-\s]+"/>
                             </p:inputText>
                             <p:message for="lastname" />
                             
                             
                             <p:outputLabel value="Vorname" for="surname"/> 
-                            <p:inputText id="surname" label="surname"  value="" validatorMessage="Vorname ist nicht gültig">
+                            <p:inputText id="surname" label="surname" value="#{registerBean.surname}" validatorMessage="Vorname ist nicht gültig">
                                 <f:validateRegex pattern="[a-zA-Z-\s]+"/>
                             </p:inputText>
                             <p:message for="surname" />
                             
                             
-                            <p:outputLabel value="E-Mailadresse (optional)" for="email"/> 
-                            <p:inputText id="email" label="email" value="" validatorMessage="E-Mail ist nicht gültig">
+                            <p:outputLabel value="E-Mailadresse (optional)" for="email" /> 
+                            <p:inputText id="email" label="email" value="#{registerBean.mail}" validatorMessage="E-Mail ist nicht gültig">
                                 <f:validateRegex pattern="(?:[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z])|(?:)"/>
                             </p:inputText>
                             <p:message for="email" />
                             
                             
                             <p:outputLabel value="Telefon" for="phone"/> 
-                            <p:inputText id="phone" label="phone" value="" validatorMessage="Telefon ist nicht gültig">
-                                <f:validateRegex pattern="[0-9\/\-\s\+]"/>
+                            <p:inputText id="phone" label="phone" value="#{registerBean.phone}" >
+                         
                             </p:inputText>
                             <p:message for="phone" />
                             
                             
                             <p:outputLabel value="Benutzername" for="username"/> 
-                            <p:inputText id="username" label="username" value="#{backingBean.lgn}"  validatorMessage="Benutzername ist nicht gültig">
+                            <p:inputText id="username" label="username" value="#{registerBean.userName}"  validatorMessage="Benutzername ist nicht gültig">
                                 <f:validateRegex pattern="[\w\d\-\_]{3,}"/>
                             </p:inputText>
                             <p:message for="username" />
                             
                             
                             <p:outputLabel value="Passwort" for="password"/> 
-                            <p:password id="password" label="password" value="#{backingBean.pwd}"  validatorMessage="Passwortlänge überprüfen!" requiredMessage="Bitte angeben!">
+                            <p:password id="password" label="password" value="#{registerBean.password}"  validatorMessage="Passwortlänge überprüfen!" requiredMessage="Bitte angeben!">
                                 <f:validateLength minimum="5"/>
                             </p:password>
                             <p:message for="password" />
                             
                             
                             <p:outputLabel value=""/>
-                            <p:commandButton value="Registrieren" ajax="false" validateClient="true"/>
-                            
+                            <p:commandButton update="cBtnMessage" id="cBtn" value="Registrieren" ajax="false" validateClient="true" action="#{registerBean.register}"/>
+                            <p:message id="cBtnMessage" for="cBtn"/>
                             
                             
                         </p:panelGrid>

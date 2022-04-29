@@ -1,11 +1,12 @@
 com\mycompany\test\User.class
 com\mycompany\test\LoginBean.class
 com\mycompany\test\resources\JavaEE8Resource.class
+com\mycompany\test\DataBean.class
+com\mycompany\test\ServiceBean.class
+com\mycompany\test\JAXRSConfiguration.class
 com\mycompany\test\SelectOneMenuViewCount.class
 com\mycompany\test\RegisterBean.class
-com\mycompany\test\ServiceBean.class
 com\mycompany\test\ShoppingCartBean.class
 com\mycompany\test\Flower.class
-com\mycompany\test\JAXRSConfiguration.class
 com\mycompany\test\ProductBean.class
 com\mycompany\test\Service.class

@@ -4,77 +4,85 @@
  */
 package com.mycompany.test;
 
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import java.io.IOException;
+import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
+import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Sascha Nickel
  */
 @Named(value = "loginBean")
-@RequestScoped
-public class LoginBean {
+@SessionScoped
+public class LoginBean implements Serializable{
+    private boolean loginOk;
     private String pwd;
-    private String title;
+    private String loginName;
+    private FacesContext context;
     private boolean ok;
     private static int id=0;
-    private FacesContext context;
     private List<User> userList;
-    private String lgn;
-       private boolean loginOk;
+    private HttpSession session;
+    
+    
+ @Inject
+    private DataBean dBean;
+    
+    @PostConstruct
+    public void init() {
+        context = FacesContext.getCurrentInstance();
+        
+        session = (HttpSession) context.getExternalContext().getSession(false);
+        userList = dBean.getUserObjectList();
+        //userList = new ArrayList<>();
+        //userList.add(new User(getId(),"admin", "secret"));
+        //userList.add(new User(getId(),"user1", "secret1"));
+    }
+    
     /**
      * Creates a new instance of LoginBean
      */
     public LoginBean() {
     }
     
-    @PostConstruct
-    public void init() {
-        context = FacesContext.getCurrentInstance();
-        userList = new ArrayList<>();
-        userList.add(new User(getId(),"admin", "secret"));
-        userList.add(new User(getId(),"user1", "secret1"));
-    }
-    
-    public void process(){
-   
+    public String login(){
+        System.out.println("oklogin");
         FacesMessage fm = null;
+        context = FacesContext.getCurrentInstance();
         ok=false;
+        String nextPage = "index";
 
         
        
-        if(pwd.length()>=5){
-            for (User u: userList){
-                if(u.getLoginName().equals(lgn)){
-
-                    if(u.getPassword().equals(pwd)){
-                        ok=true;
-                    }
-                    else{
-                        /*Fehlermeldung Passwort falsch*/
-                    }
-                    break;
-                }
-                else{
-                    /*Fehlermeldung Username falsch*/
-                }
+        for (User u : userList) {
+            System.out.println("username:"+u.getLoginName());
+            System.out.println("password:"+u.getPassword());
+            if (    u.getLoginName().equals(loginName) && u.getPassword().equals(pwd)) {
+                ok = true;
+                break;
             }
+        }
             
             System.out.println("ok:"+ok);
-            System.out.println("username:"+lgn);
+            System.out.println("username:"+loginName);
             System.out.println("password:"+pwd);
             System.out.println("context"+context.toString());
             
             if (ok){
+                this.loginOk = true;
                 fm = new FacesMessage("Ok.");
+                
+                getSession().setAttribute("loginName", loginName);
                 
                 context.addMessage("loginForm:username", fm);
                 context.addMessage("loginForm:password", fm);
@@ -83,16 +91,30 @@ public class LoginBean {
                 
                 context.addMessage("loginForm:username", fm);
                 context.addMessage("loginForm:password", fm);
+                nextPage = "login";
             }
-            
+            return nextPage;
             
         }
         
+     public void logout() {
+        context = FacesContext.getCurrentInstance();
 
+        context.getExternalContext().invalidateSession();
+        context.getExternalContext().getSession(true);
+        
+        //https://www.java-forum.org/thema/aktuelle-seite-neu-laden.131093/
+        //return seite würde es hier auch tun!
+        try {
+            context.getExternalContext().redirect("index.xhtml");
+        } catch (IOException ex) {
+            //LOGGER.log(Level.SEVERE, null, ex);
+        }
+    }
         
                 
         
-    }
+    
     
 
 
@@ -120,17 +142,17 @@ public class LoginBean {
      *
      * @return the value of lgn
      */
-    public String getLgn() {
-        return lgn;
+    public String getLoginName() {
+        return loginName;
     }
 
     /**
      * Set the value of lgn
      *
-     * @param lgn new value of lgn
+     * @param loginName new value of lgn
      */
-    public void setLgn(String lgn) {
-        this.lgn = lgn;
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
 
@@ -189,21 +211,19 @@ public class LoginBean {
         this.pwd = pwd;
     }
 
+
+
     /**
-     * Get the value of title
-     *
-     * @return the value of title
+     * @return the session
      */
-    public String getTitle() {
-        return title;
+    public HttpSession getSession() {
+        return session;
     }
 
     /**
-     * Set the value of title
-     *
-     * @param title new value of title
+     * @param session the session to set
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSession(HttpSession session) {
+        this.session = session;
     }
 }

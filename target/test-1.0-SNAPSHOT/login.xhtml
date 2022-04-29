@@ -14,7 +14,7 @@
                 <h:form id="loginForm">
                     <p:panelGrid columns="3">
                             <p:outputLabel value="Benutzername" for="username"/> 
-                            <p:inputText required="true" id="username" label="username" value="#{loginBean.lgn}"  validatorMessage="Benutzername ist nicht gültig">
+                            <p:inputText required="true" id="username" label="username" value="#{loginBean.loginName}"  validatorMessage="Benutzername ist nicht gültig">
                                 <f:validateRegex pattern="[\w\d\-\_]{3,}"/>
                             </p:inputText>
                             <p:message for="username" id="messageUsername"/>
@@ -27,7 +27,7 @@
                             <p:message for="password" id="messagePassword" />
                             
                             <p:outputLabel value=""/>
-                            <p:commandButton value="Anmelden" id="cBtnLoging" action="#{loginBean.process}"  update="messageUsername messagePassword"  />
+                            <p:commandButton value="Anmelden" id="cBtnLoging" action="#{loginBean.login}"  update="messageUsername messagePassword"  />
                             
                     </p:panelGrid>
                     

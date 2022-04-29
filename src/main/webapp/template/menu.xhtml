@@ -8,8 +8,9 @@
         <h:form>
             <p:menu id="menu">
                 <p:menuitem value="Startseite" action="index.xhtml"/>
-                <p:menuitem value="Anmelden" action="login.xhtml"/>
-                <p:menuitem value="Registrieren" action="register.xhtml"/>
+                <p:menuitem value="Anmelden" action="login.xhtml" rendered="#{!loginBean.loginOk}"/>
+                <p:menuitem value="Abmelden" action="logout.xhtml" rendered="#{loginBean.loginOk}" oncomplete="PF('dlg_confirm_delete').show()"/>
+                <p:menuitem value="Registrieren" action="register.xhtml" rendered="#{!loginBean.loginOk}"/>
                 <p:menuitem value="Produktübersicht" action="products.xhtml"/>
                 <p:menuitem value="Service" action="service.xhtml"/>
                 <p:menuitem value="Warenkorb" action="shoppingCart.xhtml"/>

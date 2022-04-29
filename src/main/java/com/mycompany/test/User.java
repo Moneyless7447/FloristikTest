@@ -4,11 +4,13 @@
  */
 package com.mycompany.test;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Sascha Nickel
  */
-public class User {
+public class User implements Serializable{
 
     private int uid;
     private String loginName;
@@ -150,5 +152,12 @@ public class User {
     public void setUid(int uid) {
         this.uid = uid;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "uid=" + uid + ", loginName=" + loginName + ", password=" + password + ", lastname=" + lastname + ", surname=" + surname + ", mail=" + mail + ", phone=" + phone + '}';
+    }
+    
+    
 }
 
