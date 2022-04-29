@@ -11,26 +11,26 @@
     <h:body>
         <ui:composition template="template/master.xhtml">
             <ui:define name="content">
-     
-                <p:dataTable rows="5" var="flower" value="#{productBean.flowers}">
-                    <p:column headerText="Artikelname">
-                        <h:outputText value="#{flower.name}" />
-                    </p:column>
-                    <p:column headerText="Netto-Einzelpreis">
-                        <h:outputText value="#{flower.price} €" />
-                    </p:column>
-                    <p:column headerText="Menge">
-                        <p:selectOneMenu id="number" value="#{shoppingCartBean.amount}" var="number" >
-                            <f:selectItems value="#{selectOneMenuViewCount.numbers}"  />
-                            <p:ajax event="itemSelect" update=":selectedItemText"/>
-                        </p:selectOneMenu>
-                    </p:column>
-                    <p:column headerText="Warenkorb">
-                        <p:commandButton value="zum Warenkorb hinzufügen" action="#{shoppingCartBean.add(flower.name)}"/>
-                    </p:column>
-                    <h:outputText id="selectedItemText" value="#{itemsBean.selectedItem}"/>
-                </p:dataTable>
-           
+                <h:form>
+                    <p:dataTable rows="5" var="flower" value="#{productBean.flowers}">
+                        <p:column headerText="Artikelname">
+                            <h:outputText value="#{flower.name}" />
+                        </p:column>
+                        <p:column headerText="Netto-Einzelpreis">
+                            <h:outputText value="#{flower.price} €" />
+                        </p:column>
+                        <p:column headerText="Menge">
+                            <p:selectOneMenu id="number" value="#{shoppingCartBean.amount}" var="number" >
+                                <f:selectItems value="#{selectOneMenuViewCount.numbers}"  />
+                                <p:ajax event="itemSelect" update=":selectedItemText"/>
+                            </p:selectOneMenu>
+                        </p:column>
+                        <p:column headerText="Warenkorb">
+                            <p:commandButton value="zum Warenkorb hinzufügen" action="#{shoppingCartBean.add(flower.name)}"/>
+                        </p:column>
+                        <h:outputText id="selectedItemText" value="#{itemsBean.selectedItem}"/>
+                    </p:dataTable>
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>
