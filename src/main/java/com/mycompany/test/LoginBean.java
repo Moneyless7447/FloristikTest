@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -35,6 +36,9 @@ public class LoginBean implements Serializable{
     private HttpSession session;
     
     
+    
+    @Inject
+    private PasswordHashConverter phc;
  @Inject
     private DataBean dBean;
     
@@ -225,5 +229,24 @@ public class LoginBean implements Serializable{
      */
     public void setSession(HttpSession session) {
         this.session = session;
+    }
+    
+    /**
+     * Der Listener wird erst aufgerufen, wenn die Eingabe nicht leer ist und
+     * die Validierung erfolgreich war!
+     *
+     * @param ev
+     */
+    public void inputAjaxListener(AjaxBehaviorEvent ev) {
+        FacesMessage fm;
+        context = FacesContext.getCurrentInstance();
+        String s = phc.getPwdHash(pwd);
+        s = s.substring(0,15)+"...";
+        if (!context.isValidationFailed()) {
+            fm = new FacesMessage("Passwort: " + s);
+            fm.setSeverity(FacesMessage.SEVERITY_INFO);
+            fm.setDetail(": Passwort(Länge ok).");
+            context.addMessage(null, fm);
+        }
     }
 }

@@ -14,7 +14,7 @@
                 <h:form id="loginForm">
                     <p:panelGrid columns="3">
                             <p:outputLabel value="Benutzername" for="username"/> 
-                            <p:inputText id="username" value="#{loginBean.loginName}" required="true" requiredMessage="Bitte angeben!" validator="userNameValidator"   validatorMessage="Benutzername ist nicht gültig" p:placeholder="Benutzername (min. 3 Zeichen!)">
+                            <p:inputText id="username" value="#{loginBean.loginName}" required="true" requiredMessage="Bitte angeben!" validator="userNameValidator"   validatorMessage="Benutzername ist nicht gültig" p:placeholder="Benutzername (min. 5 Zeichen!)">
                                 <f:validateRegex pattern="[\w\d\-\_]{3,}"/>
                                 <p:ajax event="keyup" update="messageUsername" process="@this"/> 
                             </p:inputText>
@@ -22,8 +22,9 @@
                             
                             
                             <p:outputLabel value="Passwort" for="password"/> 
-                            <p:password required="true" id="password" label="password" value="#{loginBean.pwd}"  validatorMessage="Passwortlänge überprüfen!" requiredMessage="Bitte angeben!">
+                            <p:password id="password" value="#{loginBean.pwd}" required="true"  requiredMessage="Bitte angeben!"  p:placeholder="Mindestens 5 Zeichen!" validator="pwdValidator" validatorMessage="Passwort überprüfen!">
                                 <f:validateLength minimum="5"/>
+                                <p:ajax event="keyup" update="messagePassword" listener="#{loginBean.inputAjaxListener}"/> 
                             </p:password>
                             <p:message for="password" id="messagePassword" />
                             
