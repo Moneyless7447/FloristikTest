@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 
 import javax.inject.Inject;
 
@@ -35,6 +36,11 @@ public class ShoppingCartBean implements Serializable{
     @Inject
     private ProductBean flowers;
     
+    @Inject
+    private LoginBean u;
+    
+    
+    
         /**
      * Creates a new instance of ShoppingCartBean
      */
@@ -42,8 +48,17 @@ public class ShoppingCartBean implements Serializable{
         contents = new ArrayList <>();
     }
     
-    public void order(){
+    public String order(){
+        FacesMessage fm = null;
         
+        
+        if(u.isLoginOk()){
+            return "index";
+        }
+        else{
+            return "login";
+        }
+            
     }
     
     public void add(String name, int amount){

@@ -35,12 +35,12 @@
                     
                 </p:dataTable>
                     <p:panel header="Lieferzeit">
-                        <p:panelGrid columns="1">
-                            <p:outputLabel value="Lieferdatum">
-                                <p:calendar value='#{shoppingCartBean.deliveryDate}' mode='popup' navigator="true" showOn="button" pattern='dd.MM.yyy'/>
-                            </p:outputLabel>
-                            <p:outputLabel value="Lieferzeit"/> 
-                            <p:selectOneMenu id="deliveryTime" value="">
+                        <p:panelGrid columns="2">
+                            <p:outputLabel value="Lieferdatum "/>
+                            <p:calendar id="deliveryDate" required="true" requiredMessage="Bitte Datum eingeben" value='#{shoppingCartBean.deliveryDate}' mode='popup' navigator="true" showOn="button" pattern='dd.MM.yyy'/>
+                            <p:message for="deliveryDate" id="messagedeliveryDate" />
+                            <p:outputLabel value="Lieferzeit"/>
+                            <p:selectOneMenu id="deliveryTime" value="Uhrzeit">
                                 <f:selectItem itemLabel="9:00" itemValue="nine"/>
                                 <f:selectItem itemLabel="10:00" itemValue="ten"/>
                                 <f:selectItem itemLabel="11:00" itemValue="eleven"/>
@@ -49,13 +49,14 @@
                                 <f:selectItem itemLabel="14:00" itemValue="fourteen"/>
                                 <f:selectItem itemLabel="15:00" itemValue="fifteen"/>
                             </p:selectOneMenu>
+                                
                         </p:panelGrid>                   
                     </p:panel>
                     <p:panel header="Bestellen">
                         <p:panelGrid columns="2">
                             <h:outputText  value="Gesamtpreis: "/>
                             <h:outputText  value="#{shoppingCartBean.overAllPrice}"/>
-                            <p:commandButton value="Bestellen" id="cBtnOrder" action='#{shoppingCartBean.order}'/>
+                            <p:commandButton value="Bestellen" id="cBtnOrder" update="shoppingCartForm" action='#{shoppingCartBean.order}'/>
                             <h:outputText  value=""/>
                         </p:panelGrid>
                     </p:panel>
