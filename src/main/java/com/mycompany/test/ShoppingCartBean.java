@@ -40,11 +40,11 @@ public class ShoppingCartBean implements Serializable{
         contents = new ArrayList <>();
     }
     
-    public void add(String name){
+    public void add(String name, int amount){
        
         
         Flower f = flowers.getFlowerByID(name);
-        f.setAmount(amount);
+        //f.setAmount(amount);
         System.out.println("Anzahl:" + amount);
         if (f != null){
             this.contents.add(new Flower(f.getName(), f.getPrice(),amount));

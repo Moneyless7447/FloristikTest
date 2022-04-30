@@ -20,15 +20,14 @@
                             <h:outputText value="#{flower.price} €" />
                         </p:column>
                         <p:column headerText="Menge">
-                            <p:selectOneMenu id="number" value="#{shoppingCartBean.amount}" var="number" >
-                                <f:selectItems value="#{selectOneMenuViewCount.numbers}"  />
-                                <p:ajax event="itemSelect" update=":selectedItemText"/>
-                            </p:selectOneMenu>
+                            <p:spinner value="#{flower.amount}" stepFactor="1" min="1">
+                            
+                            </p:spinner>
                         </p:column>
                         <p:column headerText="Warenkorb">
-                            <p:commandButton value="zum Warenkorb hinzufügen" action="#{shoppingCartBean.add(flower.name)}"/>
+                            <p:commandButton value="zum Warenkorb hinzufügen" action="#{shoppingCartBean.add(flower.name, flower.amount)}"/>
                         </p:column>
-                        <h:outputText id="selectedItemText" value="#{itemsBean.selectedItem}"/>
+                       
                     </p:dataTable>
                 </h:form>
             </ui:define>
