@@ -56,28 +56,18 @@ public class LoginBean implements Serializable{
     }
     
     public String login(){
-        System.out.println("oklogin");
+
         FacesMessage fm = null;
         context = FacesContext.getCurrentInstance();
         ok=false;
         String nextPage = "index";
-
-        
-       
         for (User u : userList) {
-            System.out.println("username:"+u.getLoginName());
-            System.out.println("password:"+u.getPassword());
-            if (    u.getLoginName().equals(loginName) && u.getPassword().equals(pwd)) {
+            if (u.getLoginName().equals(loginName) && u.getPassword().equals(pwd)) {
                 ok = true;
                 break;
             }
         }
-            
-            System.out.println("ok:"+ok);
-            System.out.println("username:"+loginName);
-            System.out.println("password:"+pwd);
-            System.out.println("context"+context.toString());
-            
+
             if (ok){
                 this.loginOk = true;
                 fm = new FacesMessage("Ok.");
