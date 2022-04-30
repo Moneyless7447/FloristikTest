@@ -35,7 +35,7 @@
                     
                 </p:dataTable>
                     <p:panel header="Lieferzeit">
-                        <p:panelGrid columns="2">
+                        <p:panelGrid columns="3">
                             <p:outputLabel value="Lieferdatum "/>
                             <p:calendar id="deliveryDate" required="true" requiredMessage="Bitte Datum eingeben" value='#{shoppingCartBean.deliveryDate}' mode='popup' navigator="true" showOn="button" pattern='dd.MM.yyy'/>
                             <p:message for="deliveryDate" id="messagedeliveryDate" />
