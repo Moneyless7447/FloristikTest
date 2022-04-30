@@ -1,4 +1,5 @@
 com\mycompany\test\User.class
+converter\EuroConverter.class
 com\mycompany\test\LoginBean.class
 com\mycompany\test\resources\JavaEE8Resource.class
 com\mycompany\test\DataBean.class

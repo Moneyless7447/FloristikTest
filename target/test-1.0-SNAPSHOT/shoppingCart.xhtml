@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Floristik</title>
     </h:head>
@@ -11,24 +12,62 @@
         <ui:composition template="template/master.xhtml">
             <ui:define name="content">
                 Warenkorb
-                
+                <h:form id="shoppingCartForm">
+                    
+                   
                 <p:dataTable rows="5" id="items" var="item" value="#{shoppingCartBean.contents}">
                     <p:column headerText="Artikelname">
                         <h:outputText value="#{item.name}" />
                     </p:column>
-                    <p:column headerText="Netto-Einzelpreis">
+                    <p:column headerText="Einzelpreis">
                         <h:outputText value="#{item.price} €" />
                     </p:column>
                     <p:column headerText="Menge">
-                        
-                        <h:outputText value="#{item.amount}"/>
+                        <p:spinner value="#{item.amount}" id="spinnerAmount">
+                            <f:ajax event="valueChange" render="shoppingCartForm"    />
+                        </p:spinner>
                         
                     </p:column>
                     
+                    <p:column headerText="Mengenpreis">
+                        <h:outputText id="itemTotalPrice" value="#{item.totalPrice}"/>
+                    </p:column>
+                    
                 </p:dataTable>
-                
+                    <p:panel header="Lieferzeit">
+                        <p:panelGrid columns="1">
+                            <p:outputLabel value="Lieferdatum">
+                                <p:calendar value='#{shoppingCartBean.deliveryDate}' mode='popup' navigator="true" showOn="button" pattern='dd.MM.yyy'/>
+                            </p:outputLabel>
+                            <p:outputLabel value="Lieferzeit"/> 
+                            <p:selectOneMenu id="deliveryTime" value="">
+                                <f:selectItem itemLabel="9:00" itemValue="nine"/>
+                                <f:selectItem itemLabel="10:00" itemValue="ten"/>
+                                <f:selectItem itemLabel="11:00" itemValue="eleven"/>
+                                <f:selectItem itemLabel="12:00" itemValue="twelve"/>
+                                <f:selectItem itemLabel="13:00" itemValue="thirteen"/>
+                                <f:selectItem itemLabel="14:00" itemValue="fourteen"/>
+                                <f:selectItem itemLabel="15:00" itemValue="fifteen"/>
+                            </p:selectOneMenu>
+                        </p:panelGrid>                   
+                    </p:panel>
+                    <p:panel header="Bestellen">
+                        <p:panelGrid columns="2">
+                            <h:outputText  value="Gesamtpreis: "/>
+                            <h:outputText  value="#{shoppingCartBean.overAllPrice}"/>
+                            <p:commandButton value="Bestellen" id="cBtnOrder" action='#{shoppingCartBean.order}'/>
+                            <h:outputText  value=""/>
+                        </p:panelGrid>
+                    </p:panel>
+                        
+                        
+                    
+                    
+                    
+                    </h:form> 
             </ui:define>
         </ui:composition>
+        
     </h:body>
 </html>
 

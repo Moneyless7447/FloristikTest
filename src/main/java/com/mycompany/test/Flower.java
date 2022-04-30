@@ -9,10 +9,14 @@ package com.mycompany.test;
  * @author Sascha Nickel
  */
 public class Flower {
-    
+    private Flower flower;
     private String name;
     private float price;
     
+    private float totalPrice;
+
+   
+
     private int amount;
     
     public Flower(String name, float price){
@@ -24,8 +28,15 @@ public class Flower {
     this.name=name;
     this.price=price;
     this.amount=amount;
+    this.totalPrice=price*amount;
+    
+    
     }
 
+    public void setTotalPrice(){
+        this.totalPrice = flower.getPrice()*amount;
+    }
+    
     /**
      * Get the value of amount
      *
@@ -42,6 +53,7 @@ public class Flower {
      */
     public void setAmount(int amount) {
         this.amount = amount;
+        this.totalPrice=price*amount;
     }
 
     
@@ -64,6 +76,7 @@ public class Flower {
      */
     public void setPrice(float price) {
         this.price = price;
+        this.totalPrice=price*amount;
     }
 
     /**
@@ -82,6 +95,24 @@ public class Flower {
      */
     public void setName(String name) {
         this.name = name;
+    }
+    
+     /**
+     * Get the value of totalPrice
+     *
+     * @return the value of totalPrice
+     */
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+
+    /**
+     * Set the value of totalPrice
+     *
+     * @param totalPrice new value of totalPrice
+     */
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
 }

@@ -16,17 +16,23 @@
                         <p:column headerText="Artikelname">
                             <h:outputText value="#{flower.name}" />
                         </p:column>
-                        <p:column headerText="Netto-Einzelpreis">
-                            <h:outputText value="#{flower.price} €" />
+                        <p:column headerText="Einzelpreis">
+                            <h:outputText value="#{flower.price}"  />
                         </p:column>
                         <p:column headerText="Menge">
                             <p:spinner value="#{flower.amount}" stepFactor="1" min="1">
                             
                             </p:spinner>
                         </p:column>
+                        
+                        <p:column headerText="Gesamtpreis">
+                            <h:outputText value="#{flower.price}"  />
+                        </p:column>
                         <p:column headerText="Warenkorb">
                             <p:commandButton value="zum Warenkorb hinzufügen" action="#{shoppingCartBean.add(flower.name, flower.amount)}"/>
                         </p:column>
+                        
+                        
                        
                     </p:dataTable>
                 </h:form>
