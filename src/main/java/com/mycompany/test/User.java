@@ -19,6 +19,10 @@ public class User implements Serializable{
     private String surname;
     private String mail;
     private String phone;
+    private boolean admin;
+
+   
+
 
     
     
@@ -37,12 +41,16 @@ public class User implements Serializable{
         this.surname = surname;
         this.mail = mail;
         this.phone = phone;
+        this.admin=false;
     }
 
-    public User(int uid, String loginName, String password) {
+
+    
+        public User(int uid, String loginName, String password, boolean admin) {
         this.uid = uid;
         this.loginName = loginName;
         this.password = password;
+        this.admin=admin;
     }
     /**
      * Get the value of phone
@@ -157,7 +165,23 @@ public class User implements Serializable{
     public String toString() {
         return "User{" + "uid=" + uid + ", loginName=" + loginName + ", password=" + password + ", lastname=" + lastname + ", surname=" + surname + ", mail=" + mail + ", phone=" + phone + '}';
     }
-    
+     /**
+     * Get the value of admin
+     *
+     * @return the value of admin
+     */
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    /**
+     * Set the value of admin
+     *
+     * @param admin new value of admin
+     */
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
     
 }
 

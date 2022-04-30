@@ -27,6 +27,7 @@ import javax.servlet.http.HttpSession;
 @SessionScoped
 public class LoginBean implements Serializable{
     private boolean loginOk;
+    private boolean isAdmin;
     private String pwd;
     private String loginName;
     private FacesContext context;
@@ -68,6 +69,7 @@ public class LoginBean implements Serializable{
         for (User u : userList) {
             if (u.getLoginName().equals(loginName) && u.getPassword().equals(pwd)) {
                 ok = true;
+                isAdmin = u.isAdmin();
                 break;
             }
         }
@@ -90,6 +92,14 @@ public class LoginBean implements Serializable{
             return nextPage;
             
         }
+
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
         
      public void logout() {
         context = FacesContext.getCurrentInstance();

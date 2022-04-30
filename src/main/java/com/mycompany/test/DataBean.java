@@ -56,11 +56,11 @@ public class DataBean implements Serializable{
         
         //try {
             
-            User u = new User(getId(),"user1", "secret");
+            User u = new User(getId(),"user1", "secret", false);
             this.getUserObjectList().add(u);
 
             
-            u = new User(getId(), "admin", "secret");
+            u = new User(getId(), "admin", "secret", true);
             this.getUserObjectList().add(u);
 
             this.size = this.getUserObjectList().size();

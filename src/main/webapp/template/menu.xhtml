@@ -14,6 +14,8 @@
                 <p:menuitem value="Produktübersicht" action="products.xhtml"/>
                 <p:menuitem value="Service" action="service.xhtml"/>
                 <p:menuitem value="Warenkorb" action="shoppingCart.xhtml"/>
+                <p:menuitem value="Benutzerverwaltung" action="service.xhtml" rendered="#{loginBean.isAdmin}"/>
+
             </p:menu>
         </h:form>
     </h:body>
