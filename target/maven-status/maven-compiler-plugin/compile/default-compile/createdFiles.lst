@@ -9,8 +9,10 @@ com\mycompany\test\PasswordHashConverter.class
 com\mycompany\test\SelectOneMenuViewCount.class
 com\mycompany\test\RegisterBean.class
 com\mycompany\test\ShoppingCartBean.class
+com\mycompany\test\SelectOneMenuView.class
 org\validator\UserNameValidator.class
 com\mycompany\test\Flower.class
 com\mycompany\test\ProductBean.class
+com\mycompany\test\SelectOneMenuViewTime.class
 com\mycompany\test\Service.class
 org\validator\PasswordValidator.class

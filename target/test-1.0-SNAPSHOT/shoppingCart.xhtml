@@ -39,16 +39,12 @@
                             <p:outputLabel value="Lieferdatum "/>
                             <p:calendar id="deliveryDate" required="true" requiredMessage="Bitte Datum eingeben" value='#{shoppingCartBean.deliveryDate}' mode='popup' navigator="true" showOn="button" pattern='dd.MM.yyy'/>
                             <p:message for="deliveryDate" id="messagedeliveryDate" />
-                            <p:outputLabel value="Lieferzeit"/>
-                            <p:selectOneMenu id="deliveryTime" value="Uhrzeit">
-                                <f:selectItem itemLabel="9:00" itemValue="nine"/>
-                                <f:selectItem itemLabel="10:00" itemValue="ten"/>
-                                <f:selectItem itemLabel="11:00" itemValue="eleven"/>
-                                <f:selectItem itemLabel="12:00" itemValue="twelve"/>
-                                <f:selectItem itemLabel="13:00" itemValue="thirteen"/>
-                                <f:selectItem itemLabel="14:00" itemValue="fourteen"/>
-                                <f:selectItem itemLabel="15:00" itemValue="fifteen"/>
-                            </p:selectOneMenu>
+                            
+                            
+                            <p:outputLabel for="@next" value="Lieferzeit" />
+                            <p:selectOneMenu id="time" value="#{selectOneMenuViewTime.time}">
+                                 <f:selectItems value="#{selectOneMenuViewTime.times}" />
+                             </p:selectOneMenu>
                                 
                         </p:panelGrid>                   
                     </p:panel>
