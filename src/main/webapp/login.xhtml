@@ -22,9 +22,12 @@
                             
                             
                             <p:outputLabel value="Passwort" for="password"/> 
-                            <p:password id="password" value="#{loginBean.pwd}" required="true"  requiredMessage="Bitte angeben!"  p:placeholder="Mindestens 5 Zeichen!"  validatorMessage="Passwort überprüfen!">
+                            <p:password id="password" value="#{loginBean.pwd}" required="true"  requiredMessage="Bitte angeben!"  p:placeholder="Mindestens 5 Zeichen!" validator="pwdValidator" validatorMessage="Passwort überprüfen!">
                                 <f:validateLength minimum="5"/>
-                                
+                                <p:ajax 
+                                    event="keyup" 
+                                    update="messagePassword" 
+                                    listener="#{loginBean.inputAjaxListener}"/>
                             </p:password>
                             <p:message for="password" id="messagePassword" />
                             
