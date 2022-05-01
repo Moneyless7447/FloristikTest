@@ -25,42 +25,42 @@
                             
                             
                             <p:outputLabel value="Nachname" for="lastname"/> 
-                            <p:inputText id="lastname" label="lastname"  value="#{registerBean.lastname}" validatorMessage="Nachname ist nicht gültig">
+                            <p:inputText id="lastname"  required="true" requiredMessage="Bitte eingeben" p:placeholder="Meier" value="#{registerBean.lastname}" validatorMessage="Nachname ist nicht gültig">
                                 <f:validateRegex pattern="[a-zA-Z-\s]+"/>
                             </p:inputText>
                             <p:message for="lastname" />
                             
                             
                             <p:outputLabel value="Vorname" for="surname"/> 
-                            <p:inputText id="surname" label="surname" value="#{registerBean.surname}" validatorMessage="Vorname ist nicht gültig">
+                            <p:inputText id="surname" required="true" requiredMessage="Bitte eingeben" p:placeholder="Hans" value="#{registerBean.surname}" validatorMessage="Vorname ist nicht gültig">
                                 <f:validateRegex pattern="[a-zA-Z-\s]+"/>
                             </p:inputText>
                             <p:message for="surname" />
                             
                             
                             <p:outputLabel value="E-Mailadresse" for="email" /> 
-                            <p:inputText id="email" label="email" value="#{registerBean.mail}" validatorMessage="E-Mail ist nicht gültig">
+                            <p:inputText id="email" required="true" requiredMessage="Bitte eingeben" p:placeholder="hans.meier@bielefeld.de" value="#{registerBean.mail}" validatorMessage="E-Mail ist nicht gültig">
                                 <f:validateRegex pattern="(?:[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z])|(?:)"/>
                             </p:inputText>
                             <p:message for="email" />
                             
                             
                             <p:outputLabel value="Telefon" for="phone"/> 
-                            <p:inputText id="phone" label="phone" value="#{registerBean.phone}" >
-                                
+                            <p:inputText id="phone" required="true" requiredMessage="Bitte eingeben" p:placeholder="05211234567" value="#{registerBean.phone}" validatorMessage="Nummer ist nicht gültig">
+                                <f:validateRegex pattern="[0-9]+"/>
                             </p:inputText>
                             <p:message for="phone" />
                             
                             
-                            <p:outputLabel value="Benutzername" for="username"/> 
-                            <p:inputText id="username" label="username" value="#{registerBean.userName}"  validatorMessage="Benutzername ist nicht gültig">
+                            <p:outputLabel value="Benutzername"  for="username"/> 
+                            <p:inputText id="username" required="true" requiredMessage="Bitte eingeben" p:placeholder="hansmeier3" value="#{registerBean.userName}"  validatorMessage="Benutzername ist nicht gültig">
                                 <f:validateRegex pattern="[\w\d\-\_]{3,}"/>
                             </p:inputText>
                             <p:message for="username" />
                             
                             
                             <p:outputLabel value="Passwort" for="password"/> 
-                            <p:password id="password" label="password" value="#{registerBean.password}"  validatorMessage="Passwortlänge überprüfen!" requiredMessage="Bitte angeben!">
+                            <p:password id="password" required="true" requiredMessage="Bitte eingeben" p:placeholder="Mindestens 5 Zeichen!" value="#{registerBean.password}"  validatorMessage="Passwortlänge überprüfen!" >
                                 <f:validateLength minimum="5"/>
                             </p:password>
                             <p:message for="password" />

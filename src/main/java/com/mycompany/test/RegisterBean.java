@@ -72,7 +72,7 @@ public class RegisterBean implements Serializable {
             System.out.println("Userlist: "+userList);
             for (User u : this.userList) {
                 System.out.println(u.getLoginName()+" " + userName);
-                if (/*u.getMail().equals(mail)||*/ u.getLoginName().equals(userName)) {
+                if (u.getLoginName().equals(userName)) {
                     neu = false;
                     System.out.println("Benutzer existiert bereits!");
                     fm = new FacesMessage("Benutzer existiert bereits!");
