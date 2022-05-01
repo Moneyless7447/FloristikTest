@@ -83,7 +83,7 @@ public class LoginBean implements Serializable{
                 context.addMessage("loginForm:username", fm);
                 context.addMessage("loginForm:password", fm);
             } else {
-                fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "test","Benutzername oder Passwort falsch");
+                fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Benutzername oder Passwort falsch","detail");
                 
                 context.addMessage("loginForm:cBtnLoging", fm);
                 
