@@ -23,6 +23,11 @@ public class User implements Serializable{
     private String mail;
     private String phone;
     private boolean admin;
+    
+    private String salutation;
+
+    
+
 
     public User() {
     }
@@ -187,6 +192,24 @@ public class User implements Serializable{
      */
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+    
+    /**
+     * Get the value of salutation
+     *
+     * @return the value of salutation
+     */
+    public String getSalutation() {
+        return salutation;
+    }
+
+    /**
+     * Set the value of salutation
+     *
+     * @param salutation new value of salutation
+     */
+    public void setSalutation(String salutation) {
+        this.salutation = salutation;
     }
     
 }

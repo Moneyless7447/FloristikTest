@@ -6,8 +6,10 @@ package com.mycompany.test;
 
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
@@ -38,6 +40,8 @@ public class RegisterBean implements Serializable {
     private String lastname;
     private String phone;
     private User newUser;
+    private Map<String, String> greetings = new HashMap<>();
+    private String greeting;
     
     @Inject
     private DataBean dBean;
@@ -47,6 +51,12 @@ public class RegisterBean implements Serializable {
     public void init() {
         context = FacesContext.getCurrentInstance();
         userList = dBean.getUserObjectList();
+        
+        greetings = new HashMap<>();
+        greetings.put("Herr", "Herr");
+        greetings.put("Frau", "Frau");
+        setGreeting(greetings.get("Frau"));
+        
     }
     /**
      * Creates a new instance of RegisterBean
@@ -68,6 +78,7 @@ public class RegisterBean implements Serializable {
         newUser.setPhone(phone);
         newUser.setLoginName(userName);
         newUser.setPassword(password);
+        newUser.setSalutation(greeting);
          
         if (this.userList.isEmpty()) {
             this.userList.add(newUser);
@@ -220,6 +231,33 @@ public class RegisterBean implements Serializable {
      */
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    
+        /**
+     * Get the value of greetings
+     *
+     * @return the value of greetings
+     */
+    public Map<String, String> getGreetings() {
+        return greetings;
+    }
+    
+        /**
+     * Set the value of greeting
+     *
+     * @param greeting new value of greeting
+     */
+    public void setGreeting(String greeting) {
+        this.greeting = greeting;
+    }
+    
+        /**
+     * Get the value of greeting
+     *
+     * @return the value of greeting
+     */
+    public String getGreeting() {
+        return greeting;
     }
 
 }

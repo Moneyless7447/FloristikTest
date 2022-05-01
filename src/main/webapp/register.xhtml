@@ -16,12 +16,14 @@
                         <p:panelGrid columns="4">
                             
                             
-                            <p:outputLabel value="Anrede"/> 
-                            <p:selectOneRadio id="salutation"  required="true" requiredMessage="Bitte auswählen">
-                                <f:selectItem itemLabel="Frau" itemValue="Frau"/>
-                                <f:selectItem itemLabel="Herr" itemValue="Herr"/>
+                            <h:outputText value="Anrede"/>
+                            <p:selectOneRadio id="greetingMenu" value="#{registerBean.greeting}" required="true">
+                                <f:selectItems value="#{registerBean.greetings}"/>
                             </p:selectOneRadio>
-                            <p:message for="salutation" />
+                            <p:message for="greetingMenu" />                  
+                            
+                            
+                            
                             <p:inputText id="salutation2" rendered="false"/>
                             <p:message for="salutation2" id="messagesalutation2" showDetail="false" showSummary="true"/>
                             
