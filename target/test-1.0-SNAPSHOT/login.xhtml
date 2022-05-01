@@ -29,7 +29,8 @@
                             <p:message for="password" id="messagePassword" />
                             
                             <p:outputLabel value=""/>
-                            <p:commandButton value="Anmelden" id="cBtnLoging" action="#{loginBean.login}"  update="messageUsername messagePassword"  />
+                            <p:commandButton value="Anmelden" id="cBtnLoging" action="#{loginBean.login}"  update="loginForm"  />
+                            <p:message for="cBtnLoging" id="messagecBtnLoging"/>
                             
                     </p:panelGrid>
                     

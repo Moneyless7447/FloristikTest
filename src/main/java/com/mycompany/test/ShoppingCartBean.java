@@ -12,6 +12,7 @@ import java.util.Set;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import javax.inject.Inject;
 
@@ -27,7 +28,7 @@ public class ShoppingCartBean implements Serializable{
     private String name;
     private int amount;
     private Date deliveryDate;
-    
+    private FacesContext context;
     private float overAllPrice;
 
    
@@ -87,6 +88,11 @@ public class ShoppingCartBean implements Serializable{
         if (inShoppingCart==false){
             this.contents.add(new Flower(f.getName(), f.getPrice(),amount));
             System.out.println("Produkt in Warenkorb hinzugefügt");
+            context = FacesContext.getCurrentInstance();
+            FacesMessage fm = null;
+            fm = new FacesMessage("Produkt in Warenkorb hinzugefügt");
+            context.addMessage("productForm", fm);
+            
         }
         
 

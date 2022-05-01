@@ -11,7 +11,8 @@
     <h:body>
         <ui:composition template="template/master.xhtml">
             <ui:define name="content">
-                <h:form>
+                <h:form id="productForm" prependId="false">
+                    <h:message for="productForm" /> 
                     <p:dataTable rows="5" var="flower" value="#{productBean.flowers}">
                         <p:column headerText="Artikelname">
                             <h:outputText value="#{flower.name}" />
@@ -35,6 +36,10 @@
                         
                        
                     </p:dataTable>
+                    
+                    
+                    
+                    
                 </h:form>
             </ui:define>
         </ui:composition>
