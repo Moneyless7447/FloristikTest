@@ -7,8 +7,11 @@ package com.mycompany.test;
 import java.io.Serializable;
 
 /**
- *
- * @author Sascha Nickel
+ * Name:            User
+ * Aufgabe:         Klasse für das Objekt User
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 public class User implements Serializable{
 
@@ -21,11 +24,6 @@ public class User implements Serializable{
     private String phone;
     private boolean admin;
 
-   
-
-
-    
-    
     public User() {
     }
 
@@ -130,19 +128,27 @@ public class User implements Serializable{
     
 
     
-    
+    /**
+     * @return the loginName
+     */
     public String getLoginName() {
         return loginName;
     }
-
+    /**
+     * @param loginName the loginName to set
+     */
     public void setLoginName(String loginName) {
         this.loginName = loginName;
     }
-
+   /**
+     * @return the password
+     */
     public String getPassword() {
         return password;
     }
-
+    /**
+     * @param password the password to set
+     */
     public void setPassword(String password) {
         this.password = password;
     }

@@ -4,26 +4,34 @@
  */
 package com.mycompany.test;
 
+
+
 /**
- *
- * @author Sascha Nickel
+ * Name:            Flower
+ * Aufgabe:         Klasse für das Objekt Flower
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 public class Flower {
     private Flower flower;
     private String name;
     private float price;
-    
     private float totalPrice;
-
-   
-
     private int amount;
     
-    public Flower(String name, float price){
-    this.name=name;
-    this.price=price;
+    /**
+    * Konstruktor mit Name und Preis
+    */
+
+    public Flower(String name, float price) {
+        this.name=name;
+        this.price=price;
     }
     
+    /**
+    * Konstruktor mit Name, Preis und Anzahl
+    */
     public Flower(String name, float price, int amount){
     this.name=name;
     this.price=price;
@@ -32,7 +40,11 @@ public class Flower {
     
     
     }
-
+    /**
+     * Setzt den TotalPrice bzw. Preis* Anzahl
+     *
+     * @return the value of amount
+     */
     public void setTotalPrice(){
         this.totalPrice = flower.getPrice()*amount;
     }
@@ -55,9 +67,6 @@ public class Flower {
         this.amount = amount;
         this.totalPrice=price*amount;
     }
-
-    
-    
 
 
     /**

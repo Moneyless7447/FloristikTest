@@ -12,8 +12,12 @@ import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 
 /**
- *
- * @author Sascha Nickel
+ * Name:            ProductBean
+ * Aufgabe:         Repräsentierung Backend für die Produktübersicht
+ *                  Erstellt Flowerobjekte für die Produktliste
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 @Named(value = "productBean")
 @RequestScoped
@@ -36,10 +40,24 @@ public class ProductBean {
         flowers.add(flower2);
         flowers.add(flower3);
     }
+    
+    /**
+     * Gibt Liste der Flowers bzw. Blumen zurück
+     *
+     * 
+     * @return
+     */
     public List<Flower> getFlowers() {
         return flowers;
     }
     
+    
+    /**
+     * Gibt das Objekt mit dem richtigen Namen zurück
+     *
+     * @param name
+     * @return
+     */
     public Flower getFlowerByID(String name){
         for(Flower f: this.flowers){
             if(f.getName().equals(name)){

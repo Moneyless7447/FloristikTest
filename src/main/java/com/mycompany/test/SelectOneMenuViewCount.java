@@ -11,8 +11,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
 /**
- *
- * @author Sascha Nickel
+ * Name:            SelectOneMenuViewCount
+ * Aufgabe:         Dropdown Menü von 1 bis 10
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 @Named
 @RequestScoped
@@ -50,17 +53,30 @@ public class SelectOneMenuViewCount {
     }
     
     
-    
+    /**
+     * Get the value of number
+     *
+     * @return the value of number
+     */
     
      public String getNumber() {
         return number;
     }
  
+    /**
+     * Set the value of Number
+     *
+     * @param number new value of Number
+     */
     public void setNumber(String number) {
         this.number = number;
     }
  
-
+     /**
+     * Get the list of numbers
+     *
+     * @return the list of numbers
+     */
    
     public List<SelectItem> getNumbers() {
         return numbers;

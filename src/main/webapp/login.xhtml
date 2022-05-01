@@ -12,13 +12,15 @@
         <ui:composition template="template/master.xhtml">
             <ui:define name="content">
                 <h:form id="loginForm">
-                    <p:panelGrid columns="3">
+                    <p:panelGrid columns="4">
                             <p:outputLabel value="Benutzername" for="username"/> 
                             <p:inputText id="username" value="#{loginBean.loginName}" required="true" requiredMessage="Bitte angeben!"  validator="userNameValidator"  validatorMessage="Benutzername ist nicht gültig" p:placeholder="Benutzername (min. 5 Zeichen!)">
                                 <f:validateRegex pattern="[\w\d\-\_]{3,}"/>
                                 <p:ajax event="keyup" update="messageUsername" />
                             </p:inputText>
                             <p:message for="username" id="messageUsername"/>
+                            <p:inputText id="username2" rendered="false"/>
+                            <p:message for="username2" id="messagecusername2" showDetail="false" showSummary="true"/>
                             
                             
                             <p:outputLabel value="Passwort" for="password"/> 
@@ -27,7 +29,7 @@
                                 <p:ajax 
                                     event="keyup" 
                                     update="messagePassword" 
-                                    listener="#{loginBean.inputAjaxListener}"/>
+                                    />
                             </p:password>
                             <p:message for="password" id="messagePassword" />
                             

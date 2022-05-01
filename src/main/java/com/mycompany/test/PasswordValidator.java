@@ -1,7 +1,13 @@
-/*
- * April 2022
+
+
+/**
+ * Name:            Passwordvalidator
+ * Aufgabe:         Validation des Passworts im Backend
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
-package org.validator;
+
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;

@@ -20,9 +20,13 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 /**
- *
- * @author Sascha Nickel
+ * Name:            LoginBean
+ * Aufgabe:         Repräsentierung Backend für Login
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
+
 @Named(value = "loginBean")
 @SessionScoped
 public class LoginBean implements Serializable{
@@ -40,7 +44,7 @@ public class LoginBean implements Serializable{
     
     @Inject
     private PasswordHashConverter phc;
- @Inject
+    @Inject
     private DataBean dBean;
     
     @PostConstruct
@@ -49,9 +53,6 @@ public class LoginBean implements Serializable{
         
         session = (HttpSession) context.getExternalContext().getSession(false);
         userList = dBean.getUserObjectList();
-        //userList = new ArrayList<>();
-        //userList.add(new User(getId(),"admin", "secret"));
-        //userList.add(new User(getId(),"user1", "secret1"));
     }
     
     /**
@@ -60,6 +61,11 @@ public class LoginBean implements Serializable{
     public LoginBean() {
     }
     
+    /**
+     * Prüft die Anmeldedaten und loggt User ggf. ein
+     *
+     * 
+     */
     public String login(){
 
         FacesMessage fm = null;
@@ -77,30 +83,40 @@ public class LoginBean implements Serializable{
             if (ok){
                 this.loginOk = true;
                 fm = new FacesMessage("Ok.");
-                
                 getSession().setAttribute("loginName", loginName);
-                
                 context.addMessage("loginForm:username", fm);
                 context.addMessage("loginForm:password", fm);
             } else {
                 fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Benutzername oder Passwort falsch","detail");
-                
-                context.addMessage("loginForm:cBtnLoging", fm);
-                
+                context.addMessage("loginForm:username2", fm);
                 nextPage = "login";
             }
             return nextPage;
             
         }
-
+ 
+    
+     /**
+     * Get the value of isAdmin
+     *
+     * @return the value of isAdmin
+     */
     public boolean isIsAdmin() {
         return isAdmin;
     }
-
+    /**
+     * Set the value of isAdmin
+     *
+     * @param isAdmin new value of admin
+     */
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
         
+    
+    /**
+     * Logt User aus
+     */
      public void logout() {
         context = FacesContext.getCurrentInstance();
 
@@ -115,12 +131,6 @@ public class LoginBean implements Serializable{
             //LOGGER.log(Level.SEVERE, null, ex);
         }
     }
-        
-                
-        
-    
-    
-
 
     /**
      * Get the value of loginOk
@@ -234,19 +244,22 @@ public class LoginBean implements Serializable{
     /**
      * Der Listener wird erst aufgerufen, wenn die Eingabe nicht leer ist und
      * die Validierung erfolgreich war!
+     * WIRD NICHT BENÖTIGT - LÖSCHEN
      *
      * @param ev
-     */
+     
     public void inputAjaxListener(AjaxBehaviorEvent ev) {
         FacesMessage fm;
         context = FacesContext.getCurrentInstance();
-        String s = phc.getPwdHash(pwd);
-        s = s.substring(0,15)+"...";
+        //String s = phc.getPwdHash(pwd);
+        //s = s.substring(0,15)+"...";
         if (!context.isValidationFailed()) {
-            fm = new FacesMessage("Passwort: " + s);
+            //fm = new FacesMessage("Passwort: " + s);
+            fm = new FacesMessage("Passwort: ");
             fm.setSeverity(FacesMessage.SEVERITY_INFO);
             fm.setDetail(": Passwort(Länge ok).");
             context.addMessage(null, fm);
         }
     }
+    * */
 }

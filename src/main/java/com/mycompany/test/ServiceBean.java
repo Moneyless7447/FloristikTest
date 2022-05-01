@@ -12,8 +12,12 @@ import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 
 /**
- *
- * @author Sascha Nickel
+ * Name:            ServiceBean
+ * Aufgabe:         Repräsentierung Backend für Service
+ *                  Erstellt Liste an Services
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 @Named(value = "serviceBean")
 @RequestScoped
@@ -26,6 +30,13 @@ public class ServiceBean {
     public ServiceBean() {
 
     }
+    
+    /**
+     * Erstellt Liste an Services
+     *
+     * 
+     * 
+     */
     @PostConstruct  
     public void init() {
         Service service1 = new Service("Hochzeitspaket",3.0f);

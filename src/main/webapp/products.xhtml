@@ -26,9 +26,7 @@
                             </p:spinner>
                         </p:column>
                         
-                        <p:column headerText="Gesamtpreis">
-                            <h:outputText value="#{flower.price}"  />
-                        </p:column>
+
                         <p:column headerText="Warenkorb">
                             <p:commandButton value="zum Warenkorb hinzufügen" action="#{shoppingCartBean.add(flower.name, flower.amount)}"/>
                         </p:column>

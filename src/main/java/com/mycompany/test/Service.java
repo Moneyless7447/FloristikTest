@@ -5,8 +5,11 @@
 package com.mycompany.test;
 
 /**
- *
- * @author Sascha Nickel
+ * Name:            Service
+ * Aufgabe:         Klasse für das Objekt Service bzw. für Dienstleistungen
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 public class Service {
     private String name;

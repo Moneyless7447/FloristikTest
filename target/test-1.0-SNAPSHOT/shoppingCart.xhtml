@@ -30,7 +30,7 @@
                     </p:column>
                     
                     <p:column headerText="Mengenpreis">
-                        <h:outputText id="itemTotalPrice" value="#{item.totalPrice}"/>
+                        <h:outputText id="itemTotalPrice" value="#{item.totalPrice} €"/>
                     </p:column>
                     
                 </p:dataTable>
@@ -51,7 +51,7 @@
                     <p:panel header="Bestellen">
                         <p:panelGrid columns="2">
                             <h:outputText  value="Gesamtpreis: "/>
-                            <h:outputText  value="#{shoppingCartBean.overAllPrice}"/>
+                            <h:outputText  value="#{shoppingCartBean.overAllPrice} €"/>
                             <p:commandButton value="Bestellen" id="cBtnOrder" update="shoppingCartForm" action='#{shoppingCartBean.order}'/>
                             <h:outputText  value=""/>
                         </p:panelGrid>

@@ -17,8 +17,12 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 /**
- *
- * @author Sascha Nickel
+ * Name:            ShoppingCartBean
+ * Aufgabe:         Repräsentierung Backend für ShoppingCart bzw Warenkorb
+ *                  Fügt Produkte in Warenkorb 
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 @Named(value = "shoppingCartBean")
 @SessionScoped
@@ -30,10 +34,8 @@ public class ShoppingCartBean implements Serializable{
     private Date deliveryDate;
     private FacesContext context;
     private float overAllPrice;
-
-   
-
-
+    private boolean inShoppingCart;
+    
     @Inject
     private ProductBean flowers;
     
@@ -49,6 +51,9 @@ public class ShoppingCartBean implements Serializable{
         contents = new ArrayList <>();
     }
     
+    /**
+     * Führt Bestellung aus
+     */
     public String order(){
         FacesMessage fm = null;
         
@@ -61,7 +66,14 @@ public class ShoppingCartBean implements Serializable{
         }
             
     }
+    /**
+     * Fügt Produkte dem Warenkorb hinzu
+     * 
+     * @param name Name des Produkts
+     * @param amount Anzahl die hinzugefügt werden
+     */
     
+   
     public void add(String name, int amount){
        
         inShoppingCart=false;
@@ -101,7 +113,7 @@ public class ShoppingCartBean implements Serializable{
     
 
 
-       /**
+     /**
      * wird nicht gebraucht?
      * 
      */
@@ -114,6 +126,12 @@ public class ShoppingCartBean implements Serializable{
         }
     }
     
+    
+    /**
+     * 
+     * 
+     * @return Gesamtpreis der Bestellung
+     */
     public float getOverAllPrice() {
         System.out.println("Aufruf getOverAllPrice()");
         overAllPrice=0;
@@ -125,11 +143,20 @@ public class ShoppingCartBean implements Serializable{
     }
     
 
-
+    /**
+     * Get the  ArrayList of contents
+     *
+     * @return the ArrayList of contents
+     */
     public ArrayList<Flower> getContents() {
         return contents;
     }
     
+    /**
+     * Set the value of name
+     *
+     * @param contents new list of contents
+     */
     public void setContents(ArrayList<Flower> contents) {
     this.contents = contents;
     }
@@ -170,7 +197,7 @@ public class ShoppingCartBean implements Serializable{
     public void setAmount(int amount) {
         this.amount = amount;
     }
-private boolean inShoppingCart;
+
 
     /**
      * Get the value of inShoppingCart

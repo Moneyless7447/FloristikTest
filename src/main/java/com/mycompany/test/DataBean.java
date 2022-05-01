@@ -26,8 +26,11 @@ import javax.enterprise.context.SessionScoped;
 
 
 /**
- *
- * @author Sascha Nickel
+ * Name:            DataBean
+ * Aufgabe:         Liste der registrierten User und erstellt am Anfang User
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 @Named(value = "dataBean")
 @SessionScoped
@@ -50,24 +53,19 @@ public class DataBean implements Serializable{
         userObjectList = new ArrayList<>();
         fillUserObjectList();
     }
+    /**
+     * Füllt am Anfang die Userliste mit einem normalen User und einem Admin
+     *
+     * 
+     */
     private void fillUserObjectList() {
-        
-        
-        
-        //try {
-            
             User u = new User(getId(),"user1", "secret", false);
             this.getUserObjectList().add(u);
-
-            
             u = new User(getId(), "admin", "secret", true);
             this.getUserObjectList().add(u);
-
             this.size = this.getUserObjectList().size();
 
-        //} catch (ParseException ex) {
-            //LOGGER.log(Level.SEVERE, null, ex);
-        //}
+ 
     }
     
     /**

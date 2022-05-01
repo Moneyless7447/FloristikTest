@@ -1,6 +1,4 @@
-/*
- * März 2022
- */
+
 package com.mycompany.test;
 
 import java.io.Serializable;
@@ -10,8 +8,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author lgrue
+ * Name:            PasswordHashConverter
+ * Aufgabe:         Wird nicht genutzt
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 public class PasswordHashConverter implements Serializable {
 

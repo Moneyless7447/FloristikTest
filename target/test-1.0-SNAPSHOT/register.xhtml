@@ -13,7 +13,7 @@
             <ui:define name="content">
                 <h:form id="registrationForm" prependId="false">
                     <p:panel header="Registrierung">
-                        <p:panelGrid columns="3">
+                        <p:panelGrid columns="4">
                             
                             
                             <p:outputLabel value="Anrede"/> 
@@ -22,6 +22,8 @@
                                 <f:selectItem itemLabel="Herr" itemValue="Herr"/>
                             </p:selectOneRadio>
                             <p:message for="salutation" />
+                            <p:inputText id="salutation2" rendered="false"/>
+                            <p:message for="salutation2" id="messagesalutation2" showDetail="false" showSummary="true"/>
                             
                             
                             <p:outputLabel value="Nachname" for="lastname"/> 
@@ -29,6 +31,8 @@
                                 <f:validateRegex pattern="[a-zA-Z-\s]+"/>
                             </p:inputText>
                             <p:message for="lastname" />
+                            <p:inputText id="lastname2" rendered="false"/>
+                            <p:message for="lastname2" id="messageLastname2" showDetail="false" showSummary="true"/>
                             
                             
                             <p:outputLabel value="Vorname" for="surname"/> 
@@ -36,6 +40,8 @@
                                 <f:validateRegex pattern="[a-zA-Z-\s]+"/>
                             </p:inputText>
                             <p:message for="surname" />
+                            <p:inputText id="surname2" rendered="false"/>
+                            <p:message for="surname2" id="messageSurname2" showDetail="false" showSummary="true"/>
                             
                             
                             <p:outputLabel value="E-Mailadresse" for="email" /> 
@@ -43,6 +49,8 @@
                                 <f:validateRegex pattern="(?:[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z])|(?:)"/>
                             </p:inputText>
                             <p:message for="email" />
+                            <p:inputText id="email2" rendered="false"/>
+                            <p:message for="email2" id="messageEmail2" showDetail="false" showSummary="true"/>
                             
                             
                             <p:outputLabel value="Telefon" for="phone"/> 
@@ -50,20 +58,30 @@
                                 <f:validateRegex pattern="[0-9]+"/>
                             </p:inputText>
                             <p:message for="phone" />
+                            <p:inputText id="phone2" rendered="false"/>
+                            <p:message for="phone2" id="messagePhone2" showDetail="false" showSummary="true"/>
                             
                             
                             <p:outputLabel value="Benutzername"  for="username"/> 
-                            <p:inputText id="username" required="true" requiredMessage="Bitte eingeben" p:placeholder="hansmeier3" value="#{registerBean.userName}"  validatorMessage="Benutzername ist nicht gültig">
+                            <p:inputText id="username" required="true" requiredMessage="Bitte eingeben" p:placeholder="hansmeier3" value="#{registerBean.userName}" validator="userNameValidator" validatorMessage="Benutzername ist nicht gültig">
                                 <f:validateRegex pattern="[\w\d\-\_]{3,}"/>
+                                <p:ajax event="keyup" update="messageUsername" />
                             </p:inputText>
-                            <p:message for="username" />
+                            <p:message for="username" id="messageUsername"/>
+                            <p:inputText id="username2" rendered="false"/>
+                            <p:message for="username2" id="messageUsername2" showDetail="false" showSummary="true"/>
                             
                             
                             <p:outputLabel value="Passwort" for="password"/> 
-                            <p:password id="password" required="true" requiredMessage="Bitte eingeben" p:placeholder="Mindestens 5 Zeichen!" value="#{registerBean.password}"  validatorMessage="Passwortlänge überprüfen!" >
+                            <p:password id="password" required="true" requiredMessage="Bitte eingeben" p:placeholder="Mindestens 5 Zeichen!" value="#{registerBean.password}" validator="pwdValidator" validatorMessage="Passwortlänge überprüfen!" >
                                 <f:validateLength minimum="5"/>
+                                <p:ajax 
+                                    event="keyup" 
+                                    update="messagePassword" />
                             </p:password>
-                            <p:message for="password" />
+                            <p:message for="password" id="messagePassword"  />
+                            <p:inputText id="password2" rendered="false" />
+                            <p:message for="password2" id="messagePassword2" showDetail="false" showSummary="true"/>
                             
                             
                             <p:outputLabel value=""/>

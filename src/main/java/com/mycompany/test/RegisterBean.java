@@ -17,8 +17,12 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 /**
- *
- * @author Sascha Nickel
+ * Name:            RegisterBean
+ * Aufgabe:         Repräsentierung Backend für Login
+ *                  Fügt User in Userlist hinzu
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 @Named(value = "registerBean")
 @SessionScoped
@@ -33,8 +37,6 @@ public class RegisterBean implements Serializable {
     private String surname;
     private String lastname;
     private String phone;
-    
-    
     private User newUser;
     
     @Inject
@@ -51,7 +53,11 @@ public class RegisterBean implements Serializable {
      */
     public RegisterBean() {
     }
-    
+    /**
+     * Prüft die Registrierdaten und registriert ggf. User  
+     *
+     * 
+     */
      public void register() {
         FacesMessage fm;
         FacesContext cxt = FacesContext.getCurrentInstance();

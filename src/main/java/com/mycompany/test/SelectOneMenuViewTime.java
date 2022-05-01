@@ -11,8 +11,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
 /**
- *
- * @author Sascha Nickel
+ * Name:            SelectOneMenuViewTime
+ * Aufgabe:         Dropdown Menü für die Uhrzeiten 09:00 - 18:00
+ * Version:         1.0
+ * Letzte Änderung: 01.05.2022
+ * Realisierung     Sascha Nickel
  */
 @Named
 @RequestScoped
@@ -51,15 +54,27 @@ public class SelectOneMenuViewTime {
         times.add(g9);
         times.add(g10);
     }
-
+    /**
+     * Get the value of time
+     *
+     * @return the value of time
+     */
     public String getTime() {
         return time;
     }
- 
+     /**
+     * Set the value of Time
+     *
+     * @param time new value of time
+     */
     public void setTime(String time) {
         this.time = time;
     }
-    
+         /**
+     * Get the list of Times
+     *
+     * @return the list of times
+     */
     public List<SelectItem> getTimes() {
         return times;
     }
